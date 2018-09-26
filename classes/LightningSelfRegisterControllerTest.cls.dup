@@ -1,0 +1,23 @@
+@isTest
+public class LightningSelfRegisterControllerTest 
+{
+	public static testMethod void LightningSelfRegUnitTest()
+    {
+        LightningSelfRegisterController controller = new LightningSelfRegisterController();
+        
+        LightningSelfRegisterController.isValidPassword('something', 'something');
+        
+        LightningSelfRegisterController.siteAsContainerEnabled('0DBA0000000PB2I');
+        
+        User user = new User();
+        //LightningSelfRegisterController.validatePassword(user, 'something', 'something');
+        
+        Account acc = new Account();
+        acc.Name = 'Enzigma';
+        insert acc;
+        
+        LightningSelfRegisterController.selfRegister('Enz' ,'Test', 'test@enzigma.com', 'test@123', 'test@123', acc.Id, 'https://test.com', '{ \'Name\' }', 'https://test.com', true);
+        
+        LightningSelfRegisterController.getExtraFields('FGM_Portal__CommunityAccountFieldSet');
+    }
+}
